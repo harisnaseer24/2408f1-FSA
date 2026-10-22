@@ -1,0 +1,13 @@
+npm init -y
+npm i express
+npm i nodemon
+
+
+run: 
+node app.mjs
+nodemon app.mjs
+
+now : npm run dev
+
+
+https://dummyjson.com/products?limit=194

@@ -1,0 +1,18 @@
+npm init -y
+npm i express
+npm i nodemon
+npm i dotenv
+
+
+run: 
+node app.mjs
+nodemon app.mjs
+
+now : npm run dev
+
+
+https://dummyjson.com/products?limit=194
+
+mongodb+srv://harisnaseer:<db_password>@cluster0.h4gftvt.mongodb.net/2408F1
+
+npm i mongoose
