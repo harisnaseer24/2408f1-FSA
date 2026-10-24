@@ -9,6 +9,8 @@ productRouter
 .get("/:id", ProductController.showSingleProduct)
 .post("/", ProductController.addProduct)
 .delete("/:id", ProductController.deleteProduct)
+.put("/:id", ProductController.editProduct)
+.patch("/:id", ProductController.ChangePrice)
 
 
 export default productRouter;

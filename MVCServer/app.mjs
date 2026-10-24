@@ -2,6 +2,7 @@ import express from 'express';
 import productRouter from './router/productRouter.mjs';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'
+import userRouter from './router/userRouter.mjs';
 const app = express()
 dotenv.config();
 
@@ -28,6 +29,8 @@ app.get('/', (req, res) => {
 
 
 app.use("/products",productRouter);
+app.use("/users",userRouter);
+
 
 
 

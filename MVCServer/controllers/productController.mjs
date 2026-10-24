@@ -87,13 +87,59 @@ const deleteProduct=async(req, res) => {
 }
 
 
+//update product
+const editProduct=async (req, res) => {
+ try {
+const id = req.params.id
+const updateProduct = await Product.updateOne({_id:id},{
 
+  title: req.body.title,
+  description: req.body.description,
+  price: req.body.price,
+  stock: req.body.stock,
+  rating: req.body.rating,
+  brand: req.body.brand,
+  category: req.body.category,
+  discount: req.body.discount,
+  images: req.body.images
+
+})
+
+ if (updateProduct) {
+ res.status(200).json({msg:`Product updated succesfully`,product:updateProduct})
+  } else {
+   res.status(200).json({msg:`Failed to update product right now`})
+ }} catch (error) {
+  console.log(error.msg)
+  res.status(500).json({msg:"Internal Server Error"})
+ }  
+}
+
+//update product
+const ChangePrice=async (req, res) => {
+ try {
+const id = req.params.id
+const updateProduct = await Product.updateOne({_id:id},{
+  price: req.body.price
+})
+
+ if (updateProduct) {
+ res.status(200).json({msg:`Product updated succesfully`,product:updateProduct})
+  } else {
+   res.status(200).json({msg:`Failed to update product right now`})
+ }} catch (error) {
+  console.log(error.msg)
+  res.status(500).json({msg:"Internal Server Error"})
+ }  
+}
 
 const ProductController ={
     showProducts,
     showSingleProduct,
     addProduct,
-    deleteProduct
+    deleteProduct,
+    editProduct,
+    ChangePrice
 }
 
 export default ProductController;
