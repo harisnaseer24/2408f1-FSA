@@ -2,7 +2,7 @@ npm init -y
 npm i express
 npm i nodemon
 npm i dotenv
-
+npm i bcryptjs
 
 run: 
 node app.mjs

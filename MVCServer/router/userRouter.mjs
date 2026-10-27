@@ -10,6 +10,7 @@ userRouter
 
 .get("/:id",  UserController.showSingleUser)
 .post("/signup",  UserController.Signup)
+.post("/login",  UserController.Login)
 
 
 export default userRouter;
