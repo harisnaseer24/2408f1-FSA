@@ -2,6 +2,7 @@
 
 import User from "../models/userModel.mjs";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken"
 // 
 const getUsers= async (req, res) => {
  try {
@@ -88,7 +89,10 @@ const Login=async(req, res) => {
     const verifyPassword= bcrypt.compareSync( userData.password,checkUser.password);
    
  if (verifyPassword) {
-    res.status(200).json({msg:"Login Success..!", user:checkUser});
+
+const token = await jwt.sign({checkUser},process.env.JWT_SECRET,{ expiresIn: '2h' })
+
+    res.status(200).json({msg:"Login Success..!", user:checkUser,token:token});
   } else {
     res.status(200).json({msg:"Invalid Credentials..!"});
   }

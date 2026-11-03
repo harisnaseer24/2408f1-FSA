@@ -3,6 +3,7 @@ npm i express
 npm i nodemon
 npm i dotenv
 npm i bcryptjs
+npm i jsonwebtoken
 
 run: 
 node app.mjs

@@ -1,13 +1,15 @@
 import express from 'express';
 import ProductController from '../controllers/productController.mjs';
+import adminAuth from '../controllers/middlewares/adminAuth.mjs';
+import auth from '../controllers/middlewares/auth.mjs';
 
 const productRouter= express.Router();
 
 
 productRouter
-.get("/", ProductController.showProducts)
+.get("/",adminAuth, ProductController.showProducts)
 .get("/:id", ProductController.showSingleProduct)
-.post("/", ProductController.addProduct)
+.post("/", adminAuth,ProductController.addProduct)
 .delete("/:id", ProductController.deleteProduct)
 .put("/:id", ProductController.editProduct)
 .patch("/:id", ProductController.ChangePrice)
