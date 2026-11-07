@@ -133,13 +133,42 @@ const updateProduct = await Product.updateOne({_id:id},{
  }  
 }
 
+// file upload
+const addProductWithImage=async (req, res) => {
+ try {
+  const data = req.body 
+const newProduct= new Product({
+  title: req.body.title,
+  description: req.body.description,
+  price: req.body.price,
+  stock: req.body.stock,
+  rating: req.body.rating,
+  brand: req.body.brand,
+  category: req.body.title,
+  discount: req.body.discount,
+  images: [
+    req.file.path,
+  ]
+})
+ const addproduct= await newProduct.save();
+ if (addproduct) {
+ res.status(200).json({msg:`Product added succesfully`,product:addproduct})
+  } else {
+   res.status(200).json({msg:`Failed to add product right now`})
+ }} catch (error) {
+  console.log(error.msg)
+  res.status(500).json({msg:"Internal Server Error"})
+ }  
+}
+
 const ProductController ={
     showProducts,
     showSingleProduct,
     addProduct,
     deleteProduct,
     editProduct,
-    ChangePrice
+    ChangePrice,
+    addProductWithImage
 }
 
 export default ProductController;

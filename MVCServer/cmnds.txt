@@ -4,6 +4,9 @@ npm i nodemon
 npm i dotenv
 npm i bcryptjs
 npm i jsonwebtoken
+npm i multer cloudinary multer-storage-cloudinary
+
+
 
 run: 
 node app.mjs
